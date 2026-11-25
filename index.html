@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATM Machine Simulation | By Anirudh Saxena</title>
+    <meta name="description" content="A C-language ATM simulation, rebuilt as a working ATM interface in HTML, CSS and JavaScript.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+
+        <header class="intro">
+            <h1>ATM Machine Simulation</h1>
+            <p>My C project, rebuilt for the browser. By Anirudh Saxena</p>
+        </header>
+
+        <section class="atm" aria-label="ATM machine">
+
+            <div class="atm-top">
+                <span class="brand">Saxena Bank</span>
+                <span class="status"><i class="led" id="led"></i><span id="statusText">Ready</span></span>
+            </div>
+
+            <!-- Screen with side buttons, like a real ATM -->
+            <div class="display">
+                <div class="side">
+                    <div class="side-cell"><button class="side-btn" data-slot="0" aria-label="Left button 1"></button></div>
+                    <div class="side-cell"><button class="side-btn" data-slot="1" aria-label="Left button 2"></button></div>
+                    <div class="side-cell"><button class="side-btn" data-slot="2" aria-label="Left button 3"></button></div>
+                </div>
+
+                <div class="screen-wrap">
+                    <div class="screen" id="screen" aria-live="polite"></div>
+                </div>
+
+                <div class="side">
+                    <div class="side-cell"><button class="side-btn" data-slot="3" aria-label="Right button 1"></button></div>
+                    <div class="side-cell"><button class="side-btn" data-slot="4" aria-label="Right button 2"></button></div>
+                    <div class="side-cell"><button class="side-btn" data-slot="5" aria-label="Right button 3"></button></div>
+                </div>
+            </div>
+
+            <div class="lower">
+
+                <div class="keypad" role="group" aria-label="Keypad">
+                    <button class="key" data-key="1">1</button>
+                    <button class="key" data-key="2">2</button>
+                    <button class="key" data-key="3">3</button>
+                    <button class="key fn cancel" data-key="cancel">Cancel</button>
+
+                    <button class="key" data-key="4">4</button>
+                    <button class="key" data-key="5">5</button>
+                    <button class="key" data-key="6">6</button>
+                    <button class="key fn clear" data-key="clear">Clear</button>
+
+                    <button class="key" data-key="7">7</button>
+                    <button class="key" data-key="8">8</button>
+                    <button class="key" data-key="9">9</button>
+                    <button class="key fn enter" data-key="enter">Enter</button>
+
+                    <button class="key" data-key=".">.</button>
+                    <button class="key" data-key="0">0</button>
+                    <button class="key" data-key="del">Del</button>
+                </div>
+
+                <div class="slots">
+                    <div class="slot-block">
+                        <span class="slot-label">Card</span>
+                        <button class="card-slot" id="cardSlot" aria-label="Insert card">
+                            <span class="card" id="card"><i class="chip"></i><span>Saxena Bank</span></span>
+                        </button>
+                    </div>
+
+                    <div class="slot-block">
+                        <span class="slot-label">Receipt</span>
+                        <div class="receipt-slot">
+                            <button class="receipt" id="receipt" aria-label="Take receipt"></button>
+                        </div>
+                    </div>
+
+                    <div class="slot-block">
+                        <span class="slot-label">Cash</span>
+                        <button class="cash-slot" id="cashSlot" aria-label="Collect cash">
+                            <span class="cash-bills" id="cashBills"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <p class="hint">Demo PIN is 1234. You can also type with your keyboard: digits, Enter, Backspace and Esc.</p>
+        <button class="reset" id="reset">Reset demo</button>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
